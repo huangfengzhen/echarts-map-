@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>应急平台 </title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/echartsmap.css" />
+    <link rel="stylesheet" href="./css/detail.css">
+    <link rel="stylesheet" href="./webVideoCtrl/playback.css">
+
+    <!-- 地图的css -->
+    <link rel="stylesheet" href="./css/main1119/main1119.css" />
+</head>
+
+<body>
+    <div class="data-map-wrap" style="width:100%;height:100%;background:#000000">
+        <div class="top-menu-title">
+            <p>智慧消防应急指挥平台</p>
+            <span>INTELLIGENT PIREWORKS NETWORK CLOUD PLATFORM</span>
+        </div>
+        <div class="container-wrappper" style="margin-top:10px;">
+            <!-- 左边天气 s -->
+            <div class="weather3d-box fl">
+                <div class="weather">
+                    <div class="temperature">
+                        <div class="day-status">
+                            <img class="fl" src="images/day-status.png" alt="">
+                            <div class="info-comtainer fl">
+                                <span class="sunny">晴天</span>
+                                <span>28<em>℃</em>~35<em>℃</em></span>
+                            </div>
+                            <div class="region fr">
+                                <img src="images/椭圆1拷贝6.png" alt="">
+                                <span class="qu">南山区</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="windspeed">
+                        <ul>
+                            <li>
+                                <p class="speed">风向</p>
+                                <p class="southwest">西南风</p>
+                            </li>
+                            <div class="border-right"></div>
+                            <li>
+                                <p class="speed">风力</p>
+                                <p class="southwest">4级</p>
+                            </li>
+                            <div class="border-right"></div>
+                            <li>
+                                <p class="speed">湿度</p>
+                                <p class="southwest">82%</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-wrap">
+                    <div class="info-detail">
+                        <h1>详情信息</h1>
+                        <span>深圳市南山区TCL科学院G2栋办公楼9楼发生火灾。支队立即调派3个消防中队、1个卫星消防站共14辆消防车69名消防员赶赴现场处置。中队到场经侦查发现，着火点位于9楼，过火面积约200平方米，无人员被困。</span>
+                    </div>
+                    <div class="shaweibg">
+                        <div class="shaweiimg">
+                            <img src="images/3d.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 左边天气 e -->
+            <!-- 中间地图 s -->
+            <div class="mapwrap-box fl">
+                <div id="map">
+                    <div id="container" style="width:1090px;height:830px;"></div>
+                </div>
+            </div>
+            <!-- 中间地图 e -->
+            <!-- 右边监控 s -->
+            <div class="monitorwrap-box fr">
+                <!-- 盒子s-->
+                <div class="login">
+                    <table cellpadding="0" cellspacing="3" border="0" style="display:none">
+                        <!--style="display: none"-->
+                        <tr style="display: none">
+                            <td class="tt">IP地址</td>
+                            <td><input id="loginip" type="text" class="txt" value="192.168.1.57" /></td>
+                            <td class="tt">端口号</td>
+                            <td><input id="port" type="text" class="txt" value="80" /></td>
+                            <td class="tt">用户名</td>
+                            <td><input id="username" type="text" class="txt" value="admin" /></td>
+                            <td class="tt">密码</td>
+                            <td><input id="password" type="password" class="txt" value="Fsyxf123456" /></td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="tt" style="display: none">设备端口</td>
+                            <td colspan="2" style="display: none"><input id="deviceport" type="text" class="txt"
+                                    value="8000" />（可选参数）</td>
+                            <td>
+                                窗口分割数&nbsp;
+                                <select class="sel2" onchange="changeWndNum(this.value);">
+                                    <option value="1">1x1</option>
+                                    <option value="2" selected>2x2</option>
+                                    <option value="3">3x3</option>
+                                    <option value="4">4x4</option>
+                                </select>
+                            </td>
+
+                            <td class="tt">已登录设备</td>
+                            <td>
+                                <select id="ip" class="sel" onchange="getChannelInfo();"></select>
+                            </td>
+                            <td class="tt">通道列表</td>
+                            <td>
+                                <select id="channels" class="sel">
+                                    <!--<option value="1" bzero="false">IPCamera 01</option>-->
+                                    <!--<option value="2" bzero="false">IPCamera 02</option>-->
+                                    <!--<option value="3" bzero="false">IPCamera 03</option>-->
+                                    <!--<option value="4" bzero="false">IPCamera 04</option>-->
+
+
+                                </select>
+                            </td>
+
+                            <td colspan="4">
+                                <input type="button" style="display: none" class="btn" id="clickLogin" value="登录"
+                                    onclick="clickLogin();" />
+                                <input type="button" style="display: none" class="btn" value="退出"
+                                    onclick="clickLogout();" />
+                                <input type="button" style="display: none" class="btn2" value="获取基本信息"
+                                    onclick="clickGetDeviceInfo();" />
+                                <input type="button" class="btn" style="width:120px" id="clickStartRealPlay"
+                                    　value="开始预览" onclick="clickStartRealPlay(alert('直接触发开始点击'));" />
+                            </td>
+
+
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="left" style="width:100%;">
+                    <div id="divPlugin" class="plugin" style="width:100%;height:760px"></div>
+                </div>
+                <div class="right" style="display:none">
+                    <fieldset class="preview" style="display: none">
+                        <legend>预览</legend>
+                        <table cellpadding="0" cellspacing="3" border="0">
+                            <tr>
+                                <td class="tt">码流类型</td>
+                                <td>
+                                    <select id="streamtype" class="sel">
+                                        <option value="1">主码流</option>
+                                        <option value="2">子码流</option>
+                                        <option value="3">第三码流</option>
+                                        <option value="4">转码码流</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <!-- <input type="button" class="btn" id="clickStartRealPlay" value="开始预览"
+                                    onclick="clickStartRealPlay();" /> -->
+                                    <input type="button" class="btn" value="停止预览" onclick="clickStopRealPlay();" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tt">音量</td>
+                                <td>
+                                    <input type="text" id="volume" class="txt" value="50" maxlength="3" />&nbsp;<input
+                                        type="button" class="btn" value="设置" onclick="clickSetVolume();" />（范围：0~100）
+                                </td>
+                                <td>
+                                    <input type="button" class="btn" value="打开声音" onclick="clickOpenSound();" />
+                                    <input type="button" class="btn" value="关闭声音" onclick="clickCloseSound();" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tt">对讲通道</td>
+                                <td>
+                                    <select id="audiochannels" class="sel">
+
+                                    </select>
+                                    <input type="button" class="btn" value="获取通道" onclick="clickGetAudioInfo();" />
+                                </td>
+                                <td>
+                                    <input type="button" class="btn" value="开始对讲" onclick="clickStartVoiceTalk();" />
+                                    <input type="button" class="btn" value="停止对讲" onclick="clickStopVoiceTalk();" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <input type="button" class="btn" value="抓图" onclick="clickCapturePic();" />
+                                    <input type="button" class="btn" value="开始录像" onclick="clickStartRecord();" />
+                                    <input type="button" class="btn" value="停止录像" onclick="clickStopRecord();" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <input type="button" class="btn2" value="启用电子放大" onclick="clickEnableEZoom();" />
+                                    <input type="button" class="btn2" value="禁用电子放大" onclick="clickDisableEZoom();" />
+                                    <input type="button" class="btn2" value="启用3D放大" onclick="clickEnable3DZoom();" />
+                                    <input type="button" class="btn2" value="禁用3D放大" onclick="clickDisable3DZoom();" />
+                                    <input type="button" class="btn" value="全屏" onclick="clickFullScreen();" />
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </div>
+                <!-- 盒子e -->
+            </div>
+            <!-- 右边监控 e -->
+        </div>
+    </div>
+</body>
+<script src="./js/jquery-1.10.2.min.js"></script>
+<script src="./js/scroll.js"></script>
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=SyRux96r0i0Xue1Qqp0ZPb4uCc8BC6Aw">
+</script> -->
+<!-- <script efe94ad23c248bb602a954f95bba839e></script> 我的密钥-->
+<script src="./webVideoCtrl/webVideoCtrl.js"></script>
+<script src="./webVideoCtrl/playback.js?v=1.0"></script>
+
+<!-- 以下是地图时要用到的javascript -->
+<script src="https://webapi.amap.com/maps?v=1.4.14&key=efe94ad23c248bb602a954f95bba839e&plugin=Map3D"></script>
+<script src="./js/kuaojavascript/three.js"></script>
+<script src="./js/kuaojavascript/MTLLoader.js"></script>
+<script src="./js/kuaojavascript/LoaderSupport.js"></script>
+<script src="./js/kuaojavascript/OBJLoader2.js"></script>
+<script>
+    var map = new AMap.Map('container', {
+        viewMode: '3D',
+        showBuildingBlock: false,
+        center: [116.472605, 39.992075],
+        pitch: 55,
+        zoom: 17
+    });
+    map.AmbientLight = new AMap.Lights.AmbientLight([1, 1, 1], 1);
+    map.DirectionLight = new AMap.Lights.DirectionLight([1, 0, -0.5], [1, 1, 1], 1);
+
+    var loadModel = function () {
+        var modelName = 'building';
+        var scope = this;
+        var objLoader = new THREE.OBJLoader2();
+        var callbackOnLoad = function (event) {
+            var object3Dlayer = new AMap.Object3DLayer();
+            var meshes = event.detail.loaderRootNode.children;
+            for (var i = 0; i < meshes.length; i++) {
+                var vecticesF3 = meshes[i].geometry.attributes.position;
+                var vecticesNormal3 = meshes[i].geometry.attributes.normal;
+                var vecticesUV2 = meshes[i].geometry.attributes.uv;
+
+                var vectexCount = vecticesF3.count;
+
+                mesh = new AMap.Object3D.MeshAcceptLights();
+
+                var geometry = mesh.geometry;
+
+                //底部一圈
+                // debugger
+
+                var c, opacity;
+
+                var material = meshes[i].material[0] || meshes[i].material;
+                // debugger
+                if (material.map)
+                    mesh.textures.push(
+                        'https://a.amap.com/jsapi_demos/static/demo-center/model/1519/1519.bmp')
+
+                c = material.color;
+                opacity = material.opacity
+
+                // debugger
+                for (var j = 0; j < vectexCount; j += 1) {
+                    var s = j * 3;
+                    geometry.vertices.push(vecticesF3.array[s], vecticesF3.array[s + 2], -vecticesF3.array[
+                        s + 1]);
+
+                    if (vecticesNormal3) {
+                        geometry.vertexNormals.push(vecticesNormal3.array[s], vecticesNormal3.array[s + 2],
+                            -vecticesNormal3.array[s + 1]);
+                    }
+                    if (vecticesUV2) {
+                        geometry.vertexUVs.push(vecticesUV2.array[j * 2], 1 - vecticesUV2.array[j * 2 + 1]);
+                    }
+                    geometry.vertexColors.push(c.r, c.g, c.b, opacity)
+                }
+                // debugger
+                mesh.DEPTH_TEST = material.depthTest
+                // mesh.backOrFront = 'both'
+                mesh.transparent = opacity < 1;
+                mesh.scale(6, 6, 6)
+                mesh.rotateZ(-48)
+                mesh.position(new AMap.LngLat(116.472605, 39.992075))
+                object3Dlayer.add(mesh)
+            }
+            map.add(object3Dlayer)
+        };
+
+        var onLoadMtl = function (materials) {
+            // for(var i=0;i<materials.length;i+=1){
+            // 	materials[i].side=2;
+            // }
+            objLoader.setModelName(modelName);
+            objLoader.setMaterials(materials);
+            objLoader.load('https://a.amap.com/jsapi_demos/static/demo-center/model/1519/1519.obj',
+                callbackOnLoad, null, null, null, false);
+        };
+        objLoader.loadMtl('https://a.amap.com/jsapi_demos/static/demo-center/model/1519/1519.mtl', null,
+            onLoadMtl);
+    };
+    var A = new AMap.Text({
+        text: 'XX大厦A座',
+        position: [116.472476, 39.991878],
+        height: 650,
+        verticalAlign: 'bottom',
+        map: map,
+        style: {
+            'background-color': 'red',
+            'border-color': 'white',
+            'font-size': '12px'
+        }
+    })
+
+    var B = new AMap.Text({
+        text: 'XX大厦B座',
+        verticalAlign: 'bottom',
+        position: [116.47286, 39.992178],
+        height: 651,
+        map: map,
+        style: {
+            'background-color': 'red',
+            'border-color': 'white',
+            'font-size': '12px'
+        }
+    })
+    new AMap.Circle({
+        center: [116.47246, 39.992133],
+        map: map,
+        radius: 700,
+        fillColor: 'blue',
+        strokeWeight: 1,
+        strokeColor: 'white',
+        fillOpacity: 0.05
+    })
+    new AMap.Circle({
+        center: [116.47246, 39.992133],
+        map: map,
+        radius: 500,
+        fillColor: 'blue',
+        strokeWeight: 1,
+        strokeColor: 'white',
+        fillOpacity: 0.05
+    })
+    new AMap.Circle({
+        center: [116.47246, 39.992133],
+        map: map,
+        radius: 300,
+        fillColor: 'blue',
+        strokeWeight: 1,
+        strokeColor: 'white',
+        fillOpacity: 0.05
+    })
+    var shopping = new AMap.Marker({
+        icon: 'https://a.amap.com/jsapi_demos/static/resource/shopping.png',
+        offset: new AMap.Pixel(-32, -54),
+        position: [116.468833, 39.992834],
+        map: map,
+    })
+    new AMap.Polyline({
+        path: [
+            [116.47246, 39.992133],
+            [116.468833, 39.992834]
+        ],
+        strokeColor: 'blue',
+        lineCap: 'round',
+        isOutline: true,
+        outlineColor: 'white',
+        showDir: true,
+        map: map,
+        strokeWeight: 5,
+        borderWeight: 2,
+        strokeOpacity: 0.5
+    })
+    new AMap.Text({
+        text: '购物320米',
+        position: [116.470123, 39.992572],
+        map: map,
+        style: {
+            'background-color': '#ccccff',
+            'border-color': 'white',
+            'font-size': '12px'
+        }
+    })
+    var hospital = new AMap.Marker({
+        icon: 'https://a.amap.com/jsapi_demos/static/resource/hospital.png',
+        offset: new AMap.Pixel(-32, -54),
+        position: [116.473154, 39.997106],
+        map: map,
+    })
+    new AMap.Polyline({
+        path: [
+            [116.47246, 39.992133],
+            [116.473154, 39.997106]
+        ],
+        strokeColor: 'red',
+        lineCap: 'round',
+        isOutline: true,
+        outlineColor: 'white',
+        showDir: true,
+        map: map,
+        strokeWeight: 5,
+        borderWeight: 2,
+        strokeOpacity: 0.5
+    })
+    new AMap.Text({
+        text: '医院550米',
+        position: [116.472836, 39.994887],
+        map: map,
+        style: {
+            'background-color': '#ccccff',
+            'border-color': 'white',
+            'font-size': '12px'
+        }
+    })
+    var school = new AMap.Marker({
+        icon: 'https://a.amap.com/jsapi_demos/static/resource/school.png',
+        offset: new AMap.Pixel(-32, -54),
+        position: [116.47106, 39.994558],
+        map: map
+    })
+    new AMap.Polyline({
+        path: [
+            [116.47246, 39.992133],
+            [116.47106, 39.994558]
+        ],
+        strokeColor: 'green',
+        lineCap: 'round',
+        isOutline: true,
+        outlineColor: 'white',
+        showDir: true,
+        map: map,
+        strokeWeight: 5,
+        borderWeight: 2,
+        strokeOpacity: 0.5
+    })
+    new AMap.Text({
+        text: '学校300米',
+        position: [116.471626, 39.993571],
+        map: map,
+        style: {
+            'background-color': '#ccccff',
+            'border-color': 'white',
+            'font-size': '12px'
+        }
+    })
+    loadModel()
+</script>
+
+</html>

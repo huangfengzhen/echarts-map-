@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>xml</title>
+</head>
+
+<body>
+    <span class="name" style="margin:50px;">数据</span>
+</body>
+<script src="./js/jquery-1.10.2.min.js"></script>
+<script>
+    window.onload = function () {
+        weather();
+
+        function weather() {
+            var name = $(".name");
+            var cityName = "南山区";
+            $.ajax({
+                type: 'GET',
+                url: 'http://wthrcdn.etouch.cn/WeatherApi?city=' + cityName,
+                dataType: 'xml',
+                error: function () {
+                    alert(1)
+                },
+                success: function (xml) {
+                    console.log(xml)
+                    // alert($(xml).find("city").text());
+                    // var shuju = $(xml).find("forecast").find(weather)[0].date
+                    // $(".name").html(shuju)
+
+                }
+            });
+        }
+    };
+</script>
+
+</html>

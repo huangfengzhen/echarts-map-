@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大屏数据</title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/echartsmap.css?v=1.1" />
+    <!-- <script>
+        alert(document.documentElement.clientHeight)
+    </script> -->
+</head>
+
+<body>
+    <div class="data-map-wrap">
+        <div class="top-menu-title">
+            <p>智慧消防物联网云平台</p>
+            <span>INTELLIGENT PIREWORKS NETWORK CLOUD PLATFORM</span>
+        </div>
+        <div class="container-wrappper">
+            <!-- 左边信息框 s -->
+            <div class='left-wrapper fl'>
+                <!-- 故障信息 s-->
+                <div class="left-first">
+                    <div class="total-fault" style="margin:0">
+                        <div class="title-border">
+                            <div class="leftborder"></div>
+                            <div class="positionabso"></div>
+                            <h4 class="fault-title">故障信息</h4>
+                        </div>
+                        <div class="border-box">
+                            <div class="top-scroll-box">
+                                <ul>
+                                    <li class="box-height">
+                                        <div class="margin-b-5 padding-5">
+                                            <div class="flex-between-center">
+                                                <div class="scroll-boxdiv fl">
+                                                    <div class="now-time">2019-04-19 23:00</div>
+                                                    <div class="company-name">深圳市富思源消防股份有限公司</div>
+                                                    <div class="fault-address	">四楼照明配电箱TO超温报警(99%)</div>
+                                                </div>
+                                                <div class="status-button fr">
+                                                    <img src="images/yichuli.png"></img>
+                                                    <span>已处理</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="box-height">
+                                        <div class="margin-b-5 padding-5">
+                                            <div class="flex-between-center">
+                                                <div class="scroll-boxdiv fl">
+                                                    <div class="now-time">2019-04-19 23:00</div>
+                                                    <div class="company-name">深圳市富思源消防股份有限公司</div>
+                                                    <div class="fault-address	">四楼照明配电箱TO超温报警(99%)</div>
+                                                </div>
+                                                <div class="status-button fr">
+                                                    <img src="images/yichuli.png"></img>
+                                                    <span>已处理</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="box-height">
+                                        <div class="margin-b-5 padding-5">
+                                            <div class="flex-between-center">
+                                                <div class="scroll-boxdiv fl">
+                                                    <div class="now-time">2019-04-19 23:00</div>
+                                                    <div class="company-name">深圳市富思源消防股份有限公司</div>
+                                                    <div class="fault-address	">四楼照明配电箱TO超温报警(99%)</div>
+                                                </div>
+                                                <div class="status-button fr">
+                                                    <img src="images/yichuli.png"></img>
+                                                    <span>已处理</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="box-height">
+                                        <div class="margin-b-5 padding-5">
+                                            <div class="flex-between-center">
+                                                <div class="scroll-boxdiv fl">
+                                                    <div class="now-time">2019-04-19 23:00</div>
+                                                    <div class="company-name">深圳市富思源消防股份有限公司</div>
+                                                    <div class="fault-address	">四楼照明配电箱TO超温报警(99%)</div>
+                                                </div>
+                                                <div class="status-button fr">
+                                                    <img src="images/yichuli.png"></img>
+                                                    <span>已处理</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 故障信息 e-->
+
+                <!-- 火警信息 s-->
+                <div class="left-second">
+                    <div class="total-fault">
+
+                        <div class="title-border">
+                            <div class="leftborder"></div>
+                            <div class="positionabso"></div>
+                            <h4 class="fault-title">火警信息</h4>
+                        </div>
+                        <div class="border-box">
+                            <div class="top-scroll-box">
+                                <ul>
+                                    <li class="box-height">
+                                        <div class="margin-b-5 padding-5">
+                                            <div class="flex-between-center">
+                                                <div class="scroll-boxdiv fl">
+                                                    <div class="now-time">2019-04-19 23:00</div>
+                                                    <div class="company-name">深圳市富思源消防股份有限公司</div>
+                                                    <div class="fault-address	">四楼照明配电箱TO超温报警(99%)</div>
+                                                </div>
+                                                <div class="status-button fr">
+                                                    <img src="images/yichuli.png"></img>
+                                                    <span>已处理</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="box-height">
+                                        <div class="margin-b-5 padding-5">
+                                            <div class="flex-between-center">
+                                                <div class="scroll-boxdiv fl">
+                                                    <div class="now-time">2019-04-19 23:00</div>
+                                                    <div class="company-name">深圳市富思源消防股份有限公司</div>
+                                                    <div class="fault-address	">四楼照明配电箱TO超温报警(99%)</div>
+                                                </div>
+                                                <div class="status-button fr">
+                                                    <img src="images/yichuli.png"></img>
+                                                    <span>已处理</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="box-height">
+                                        <div class="margin-b-5 padding-5">
+                                            <div class="flex-between-center">
+                                                <div class="scroll-boxdiv fl">
+                                                    <div class="now-time">2019-04-19 23:00</div>
+                                                    <div class="company-name">深圳市富思源消防股份有限公司</div>
+                                                    <div class="fault-address	">四楼照明配电箱TO超温报警(99%)</div>
+                                                </div>
+                                                <div class="status-button fr">
+                                                    <img src="images/yichuli.png"></img>
+                                                    <span>已处理</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="box-height">
+                                        <div class="margin-b-5 padding-5">
+                                            <div class="flex-between-center">
+                                                <div class="scroll-boxdiv fl">
+                                                    <div class="now-time">2019-04-19 23:00</div>
+                                                    <div class="company-name">深圳市富思源消防股份有限公司</div>
+                                                    <div class="fault-address	">四楼照明配电箱TO超温报警(99%)</div>
+                                                </div>
+                                                <div class="status-button fr">
+                                                    <img src="images/yichuli.png"></img>
+                                                    <span>已处理</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 火警信息 e-->
+
+                <!-- 故障总数 s-->
+                <div class="left-second">
+                    <div class="total-fault">
+
+                        <div class="title-border">
+                            <div class="leftborder"></div>
+                            <div class="positionabso"></div>
+                            <h4 class="fault-title">故障总数</h4>
+                        </div>
+                        <div class="echarts-box">
+                            <div id="trouble-amount"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 故障总数 e-->
+
+                <!-- 火警总数 s-->
+                <div class="left-second">
+                    <div class="total-fault">
+                        <div class="title-border">
+                            <div class="leftborder"></div>
+                            <div class="positionabso"></div>
+                            <h4 class="fault-title">火警总数</h4>
+                        </div>
+                        <div class="echarts-box">
+                            <div id="larm-amount"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 火警总数 e-->
+            </div>
+            <!-- 左边信息框 e -->
+            <!-- 中间地图 s -->
+            <div class='center-wrapper fl'>
+                <div class="info-num">
+                    <ul>
+                        <li>
+                            <p>报警总数</p>
+                            <span>200</span>
+                        </li>
+                        <li>
+                            <p>单位总数</p>
+                            <span>200</span>
+                        </li>
+                        <li>
+                            <p>设备完好（%）</p>
+                            <span>200</span>
+                        </li>
+                        <li>
+                            <p>故障解决（%）</p>
+                            <span>200</span>
+                        </li>
+                    </ul>
+                </div>
+                <div id="cuschina" style='min-width:1112px;height:800px;'></div>
+                <div class="copyright">由深圳市富思源智慧消防服从有限公司提供技术支持</div>
+            </div>
+            <!-- 中间地图 e -->
+            <!-- 右边 s -->
+            <div class='right-wrapper fl'>
+                <!-- 消防设施完好率 s-->
+                <div class="right-first">
+                    <div class="total-fault" style="margin:0">
+                        <div class="leftborder"></div>
+                        <h4 class="fault-title">消防设施完好率</h4>
+                        <div class="echarts-box">
+                            <div id="integrity-rate"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 消防设施完好率 s-->
+                <!-- 消防维护服务质量s -->
+                <div class="right-second">
+                    <div class="total-fault" style="margin:0">
+                        <div class="leftborder"></div>
+                        <h4 class="fault-title">消防维护服务质量</h4>
+                        <div class="echarts-box">
+                            <div id="quality"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 消防维护服务质量e -->
+
+                <!-- 建筑消防设施可靠性s  -->
+                <div class="right-second">
+                    <div class="total-fault" style="margin:0">
+                        <div class="leftborder"></div>
+                        <h4 class="fault-title">建筑消防设施可靠性</h4>
+                        <div class="echarts-box">
+                            <div id="reliable"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 建筑消防设施可靠性 e -->
+
+                <!-- 故障等级s  -->
+                <div class="right-second">
+                    <div class="total-fault" style="margin:0">
+                        <div class="leftborder"></div>
+                        <h4 class="fault-title">建筑设施故障等级</h4>
+                        <div class="echarts-box">
+                            <div id="grade"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 故障等级 e -->
+            </div>
+            <!-- 右边 e -->
+        </div>
+    </div>
+</body>
+<script src="./js/jquery-1.10.2.min.js"></script>
+
+<script src="./js/scroll.js"></script>
+<script src="./js/echarts.min.js"></script>
+<script src="./js/china.js"></script>
+
+<script src="./js/cusjavascript/centermap.js"></script>
+<script type="text/javascript">
+    //控制滚动的js代码
+    $(function () {
+        $('.top-scroll-box').scroll({
+            speed: 1500 //数值越大，速度越快
+        });
+    });
+
+
+    //    故障总数的echarts代码
+    (function () {
+        var dom = document.getElementById("trouble-amount");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+            legend: {
+                orient: 'horizontal',
+                x: 'right', //图例在x方向的位置
+                y: 'top', //图例在y方向的位置
+                itemWidth: 20, //宽
+                itemHeight: 11, //高
+                itemGap: 20, //图例之间的间距
+                // lineStyle: {
+                //     width: 3,
+                //     height: 3
+                // },
+                data: ['火警', '故障', '异常'],
+                selected: {
+                    '火警': true,
+                    '故障': true,
+                    //不想显示的都设置成false
+                },
+                textStyle: {
+                    fontSize: 12, //字体大小
+                    color: '#ffffff', //字体颜色
+                    vertical: 'middle'
+                },
+            },
+            //------------- grid区域 ----------------
+            grid: {
+                show: false, //---是否显示直角坐标系网格
+                top: 30, //---相对位置，top\bottom\left\right
+                right: 5,
+                containLabel: false, //---grid 区域是否包含坐标轴的刻度标签
+                tooltip: { //---鼠标焦点放在图形上，产生的提示框
+                    show: true,
+                    trigger: 'item', //---触发类型
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: 10
+
+                    },
+                }
+            },
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['product', '已处理', '处理中', '未处理'],
+                    ['探测器', 700, 300, 600],
+                    ['模块故障', 160, 370, 600],
+                    ['联运故障', 550, 66, 630]
+
+                ]
+            },
+            xAxis: {
+
+                type: 'category',
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#ffffff'
+                    }
+                }
+            },
+            // yAxis: {
+            //     axisLabel: {
+            //         show: true,
+            //         textStyle: {
+            //             color: '#ffffff'
+            //         }
+            //     }
+            // },
+            yAxis: [{
+                type: 'value',
+                min: 0,
+                max: 700,
+                splitArea: {
+                    show: true
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#ffffff'
+                    }
+                }
+            }],
+
+            series: [{
+                    name: '火警',
+                    barGap: 0,
+                    type: 'bar',
+                    barWidth: 8,
+                    itemStyle: {
+                        normal: {
+                            color: "#00e198"
+                            // color:'rgba(0,0,0,0.05)'
+
+                        }
+                    }
+                },
+                {
+                    name: '故障',
+                    type: 'bar',
+                    barWidth: 8,
+                    itemStyle: {
+                        normal: {
+                            color: "#ff9700"
+                            // color:'rgba(0,0,0,0.05)'
+                        }
+                    }
+                },
+                {
+                    name: '异常',
+                    type: 'bar',
+                    barWidth: 8,
+                    itemStyle: {
+                        normal: {
+                            color: "red"
+                            // color:'rgba(0,0,0,0.05)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    })();
+
+    //    火警总数的echarts代码
+    (function () {
+        var dom = document.getElementById("larm-amount");
+        var larm = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+            legend: {
+                orient: 'horizontal',
+                x: 'right', //图例在x方向的位置
+                y: 'top', //图例在y方向的位置
+                itemWidth: 15, //宽
+                itemHeight: 12, //高
+                itemGap: 20, //图例之间的间距
+                // lineStyle: {
+                // width: 3,
+                // height: 3
+                // },
+                textStyle: {
+                    fontSize: 12, //字体大小
+                    color: '#ffffff', //字体颜色
+                    vertical: 'middle'
+                },
+            },
+            grid: {
+                show: false, //---是否显示直角坐标系网格
+                top: 30, //---相对位置，top\bottom\left\right
+                right: 5,
+                containLabel: false, //---grid 区域是否包含坐标轴的刻度标签
+                tooltip: { //---鼠标焦点放在图形上，产生的提示框
+                    show: true,
+                    trigger: 'item', //---触发类型
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: 10
+
+                    },
+                }
+            },
+            tooltip: {},
+            dataset: {
+                source: [
+                    ['product', '已处理', '处理中', '未处理'],
+                    ['烟感报警', 43.3, 85.8, 93.7],
+                    ['温感报警', 83.1, 73.4, 55.1],
+                    ['手动报警', 86.4, 65.2, 82.5]
+
+                ]
+            },
+            xAxis: {
+                type: 'category',
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#ffffff'
+                    }
+                }
+            },
+            // yAxis: {
+            //     axisLabel: {
+            //         show: true,
+            //         textStyle: {
+            //             color: '#ffffff'
+            //         }
+            //     }
+            // },
+
+            yAxis: [{
+                type: 'value',
+                min: 0,
+                max: 700,
+                splitArea: {
+                    show: true
+                },
+                axisLabel: {
+                    show: true,
+                    textStyle: {
+                        color: '#ffffff'
+                    }
+                }
+            }],
+
+
+            series: [{
+                    barGap: 0,
+                    type: 'bar',
+                    barWidth: 8,
+                    itemStyle: {
+                        normal: {
+                            color: "#00e198"
+                        }
+                    }
+                },
+                {
+                    type: 'bar',
+                    barWidth: 8,
+                    itemStyle: {
+                        normal: {
+                            color: "#ff9700"
+                        }
+                    }
+                },
+                {
+                    type: 'bar',
+                    barWidth: 8,
+                    itemStyle: {
+                        normal: {
+                            color: "red"
+                        }
+                    }
+                }
+            ]
+        };
+
+        if (option && typeof option === "object") {
+            larm.setOption(option, true);
+        }
+    })();
+
+    // 右上角消防设施完好率
+    (function () {
+        var dom = document.getElementById("integrity-rate");
+        var myChart = echarts.init(dom);
+
+        option = {
+            tooltip: {
+                show: false, //关闭鼠标移上去的悬浮提示
+                trigger: 'item',
+                formatter: "{a} <br />{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: ['良好', '中等', '完好率'],
+                show: false //让标题不显示
+            },
+            color: ["#fc254e", "#01d998", "#01b9ff"], //环形的颜色
+            series: [{
+                name: '完好率',
+                type: 'pie',
+                radius: ['65%', '80%'],
+                avoidLabelOverlap: false, //是否开启hover的放大动画效果
+                //silent: true, //开启图形是否不响应和触发鼠标事件，默认为false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center',
+                        formatter: function () { //圆形里面的文字内容
+                            return '完好率64%'
+                        },
+                        textStyle: {
+
+                            color: '#ffffff'
+                        }
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '14',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [{
+                        value: 120,
+                        name: '良好'
+                    },
+                    {
+                        value: 240,
+                        name: '中等'
+                    },
+                    {
+                        value: 640,
+                        name: '完好率'
+                    }
+                ]
+            }]
+        };;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    })();
+
+    // 右上角消维护服务质量
+    (function () {
+        var dom = document.getElementById("quality");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+            tooltip: {
+                show: false, //关闭鼠标移上去的悬浮提示
+                trigger: 'item',
+                formatter: "{a} <br />{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: ['良好', '中等'],
+                show: false //让标题不显示
+            },
+            color: ["#fc254e", "#01d998"], //环形的颜色
+            series: [{
+                name: '完好率',
+                type: 'pie',
+                radius: ['0%', '80%'],
+                avoidLabelOverlap: false, //是否开启hover的放大动画效果
+                //silent: true, //开启图形是否不响应和触发鼠标事件，默认为false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center',
+                        formatter: function () { //圆形里面的文字内容
+                            return '完好率64%'
+                        },
+                        textStyle: {
+
+                            color: 'green'
+                        }
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '14',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [{
+                        value: 120,
+                        name: '良好'
+                    },
+                    {
+                        value: 240,
+                        name: '中等'
+                    }
+
+                ]
+            }]
+        };;
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    })();
+
+    // 故障等级
+    (function () {
+        var dom = document.getElementById("grade");
+        var myChart = echarts.init(dom);
+
+        option = {
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                type: 'line',
+                areaStyle: {}
+            }]
+        };
+
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+
+
+    })();
+
+
+
+
+
+    // 地图
+    (function () {
+        var markPointData = [{
+                "name": "湖南",
+                "coord": [
+                    112.949935, 28.235956
+                ],
+                "runConut": '537',
+                "num": '234'
+            },
+            {
+                "name": "青岛",
+                "coord": [
+                    120.33, 36.07
+                ],
+                "runConut": '120',
+                "num": '196'
+            },
+            {
+                "name": "温州",
+                "coord": [
+                    120.65, 28.01
+                ],
+                "runConut": '50',
+                "num": '120'
+            },
+            {
+                "name": "广东",
+                "coord": [
+                    114.057488, 22.552787
+                ],
+                "runConut": '50',
+                "num": '120'
+            }
+        ];
+        // 绘制图表，准备数据
+        var option = {
+            tooltip: {
+                formatter: function (params) {
+                    var info = '<p style="font-size:18px">' + params.name +
+                        '</p> <p style = "font-size:14px" > 这里写发生火警的地点位置 < /p>'
+                    return info;
+                },
+                backgroundColor: "#ff7f50", //提示标签背景颜色
+                textStyle: {
+                    color: "#fff"
+                } //提示标签字体颜色
+            },
+            geo: {
+                show: true,
+                map: 'china',
+                label: {
+                    normal: {
+                        show: false
+                    },
+                    emphasis: {
+                        show: false,
+                    }
+                },
+                roam: false, //地图设置不可拖拽，固定的
+                itemStyle: {
+                    normal: {
+                        areaColor: '#006fff',
+                        borderWidth: 0,
+                        shadowColor: 'rgba(0,54,255, 1)',
+                        shadowBlur: 100
+                    }
+                }
+            },
+
+            // 左下角四个数据
+            legend: {
+                orient: 'vertical',
+                left: 'right',
+                bottom: '30px',
+                data: ['火警', '故障', '异常', '离线'],
+                selected: {
+                    '火警': true,
+                    '故障': true,
+                    '异常': true,
+                    '离线': true,
+                    //不想显示的都设置成false
+                }
+            },
+
+
+
+            series: [{
+                name: '火警',
+                type: 'map',
+                mapType: 'china',
+                selectedMode: 'multiple',
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: false, //默认是否显示省份名称
+                            textStyle: {
+                                color: "#c8cad7"
+                            }
+                        },
+                        areaColor: '#0848b4', //地图板块颜色
+
+                        borderWidth: 0.7, //边框的大小
+                        // borderColor: '#06327d',
+                        borderColor: '#0b66ff',
+                        color: '#1548b1'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true, //选中状态是否显示省份名称
+                        },
+                        areaStyle: {
+                            color: '#90c31d', //选中状态的地图板块颜色
+                        },
+                    },
+                },
+                label: {
+                    normal: {
+                        show: true, //显示省份标签
+                        // textStyle:{color:"#c71585"}//省份标签字体颜色
+                    },
+                    emphasis: {
+                        show: true, //对应的鼠标悬浮效果
+                        // textStyle:{color:"#800080"}
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: true, //默认是否显示省份名称
+                            textStyle: {
+                                color: "#c8cad7"
+
+                            }
+                        },
+                        areaColor: '#0848b4', //地图板块颜色
+
+                        borderWidth: 0.7, //边框的大小
+                        // borderColor: '#06327d',
+                        borderColor: '#0b66ff',
+                        color: '#1548b1'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true, //选中状态是否显示省份名称
+                        },
+                        areaStyle: {
+                            color: '#90c31d', //选中状态的地图板块颜色
+                        },
+                    },
+                },
+                "markPoint": { //图表标注。
+                    // "symbol": 'path://m 0,0 h 48 v 20 h -30 l -6,10 l -6,-10 h -6 z',
+                    "sybol": 'image://yuo.png',
+                    "symbolSize": 20, //图形大小
+                    "label": {
+                        "normal": {
+                            "show": true,
+                        },
+                        "emphasis": {
+                            show: true,
+                        }
+                    },
+                    "itemStyle": {
+                        "normal": {
+                            "color": 'rgba(229,55,46,1)'
+                        }
+                    },
+                    data: markPointData
+                }
+                // data: dataMap
+            }]
+        };
+        //初始化echarts实例
+        var myChart = echarts.init(document.getElementById('cuschina'));
+        //使用制定的配置项和数据显示图表
+        myChart.setOption(option);
+        myChart.on('click', function () {
+            // alert(0);
+            // window.open('http://www.baidu.com')
+            window.location.href = "detail.html";
+        })
+    })()
+</script>
+
+</html>

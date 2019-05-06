@@ -1,0 +1,145 @@
+.weather3d-box {
+    width: 365px;
+    height: 810px;
+
+}
+
+.weather3d-box>.weather {
+    width: 325px;
+    height: 105px;
+    background: url('../images/tianqi-beijng.png')no-repeat;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+.weather3d-box>.weather>.temperature {
+    width: 100%;
+    height: 60px;
+    color: #ffffff;
+}
+
+.day-status {
+    height: 50px;
+}
+
+.weather3d-box>.weather>.temperature>.day-status>img {
+    width: 50px;
+    height: 50px;
+    padding-right: 20px;
+}
+
+.weather3d-box>.weather>.temperature>.day-status>.info-comtainer>span {
+    display: block;
+    font-size: 14px;
+
+}
+
+.info-comtainer>span.sunny {
+    height: 26px;
+    line-height: 26px;
+
+}
+
+.weather3d-box>.weather>.temperature>.day-status>.info-comtainer>span:nth-child(2) {
+    color: #02d6ff;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+}
+
+.info-comtainer>span>em {
+    font-size: 14px;
+    padding-left: 6px
+}
+
+.region span.qu {
+    font-size: 14px;
+}
+
+.windspeed {
+    width: 100%;
+    height: 30px;
+
+    color: #fff;
+}
+
+
+
+.windspeed ul li {
+    float: left;
+    width: 105px;
+    text-align: center
+}
+
+.windspeed .speed {
+    color: #02d6ff;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+
+}
+
+.windspeed .southwest {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.border-right {
+    width: 1px;
+    height: 20px;
+    background: #02d6ff;
+    float: left;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+.weather3d-box>.info-wrap {
+    width: 345px;
+    height: 915px;
+    background: url('../images/3d-wrap.png')no-repeat;
+    padding: 12px;
+}
+
+.weather3d-box>.info-wrap>.info-detail {
+    width: 325px;
+    height: 125px;
+    background: url('../images/xiangxing-xinxi.png')no-repeat;
+    padding: 10px;
+}
+
+.weather3d-box>.info-wrap>.info-detail>h1 {
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+
+    color: #00baff;
+}
+
+.weather3d-box>.info-wrap>.info-detail>span {
+    padding: 0px 0;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+
+    color: #ddd;
+    text-indent: 10px;
+    display: block;
+}
+
+/* 中间地图 */
+#map {
+    width: 1090px;
+    height: 830px;
+    margin: 0 15px;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+
+/*右边监控 */
+.monitorwrap-box {
+    width: 394px;
+    height: 830px;
+    background: url('../images/jiankong-beijing.png')no-repeat
+}
